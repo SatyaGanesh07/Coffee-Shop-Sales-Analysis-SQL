@@ -1,7 +1,7 @@
 <h1 align="center">Coffee Shop Sales Analysis with SQL</h1>
 
 <p align="center">
-    <img src="https://github.com/meabhaykr/Coffee-Shop-Sales-Analysis-Using-SQL/blob/main/Header.png" alt="Header">
+    <img src=https://github.com/SatyaGanesh07/Coffee-Shop-Sales-Analysis-SQL/blob/efe3f87892963cc76dcd00cf5e6db2956338f1a2/Header.png>
 </p>
 
 Welcome to the Coffee Shop Sales Analysis project! This repository showcases SQL-based data analysis performed on transactional data from a coffee shop. The primary objective is to derive actionable insights from sales data to enhance decision-making processes. The analysis focuses on revenue trends, customer behavior, product performance, and operational efficiency.
