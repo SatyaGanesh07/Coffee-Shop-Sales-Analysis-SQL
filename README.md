@@ -29,7 +29,7 @@ This project analyzes the sales transactions from a coffee shop, stored in the `
 ## **Database Schema**
 
 <p align="center">
-    <img src="https://github.com/meabhaykr/Coffee-Shop-Sales-Analysis-Using-SQL/blob/main/Transactions%20Table.png" alt="Transactions Table">
+    <img src=https://github.com/SatyaGanesh07/Coffee-Shop-Sales-Analysis-SQL/blob/9dacb956aa33fb420f3353e5927c9fe736efad8b/Documents/Transactions%20Table.png>
 </p>
 
 ---
