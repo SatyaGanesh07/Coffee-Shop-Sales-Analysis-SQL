@@ -1,0 +1,124 @@
+CREATE TABLE Transactions (
+    transaction_id INT PRIMARY KEY, 
+    transaction_date DATE,
+    transaction_time TIME,
+    store_id INT,
+    store_location VARCHAR(255),
+    product_id INT,
+    transaction_qty INT,
+    unit_price DECIMAL(10, 2),
+    product_category VARCHAR(255),
+    product_type VARCHAR(255),
+    product_detail VARCHAR(255),
+    size VARCHAR(50),
+    amount DECIMAL(10, 2),
+    month_name VARCHAR(255),
+    day_name VARCHAR(50),
+    hour INT,
+    day_of_week INT,
+    month INT
+);
+
+
+select * from Transactions
+Drop table Transactions
+
+-- 3. SQL Queries to Replicate Analysis
+-- (a) Total Sales
+SELECT 
+    SUM(amount) AS total_sales 
+FROM Transactions;
+
+-- (b) Total Visitors
+-- Assume each transaction represents one visitor:
+SELECT 
+    COUNT(DISTINCT transaction_id) AS total_visitors 
+FROM Transactions;
+
+-- (c) Average Bill and Orders
+SELECT 
+    AVG(amount) AS avg_bill
+FROM Transactions;
+
+-- (d) Average Orders
+SELECT 
+    AVG(transaction_qty) AS avg_orders
+FROM Transactions;
+
+-- Total Sales, Total Visitors, Average Bill and Orders
+-- SELECT 
+--     SUM(amount) AS total_sales,
+-- 	COUNT(DISTINCT transaction_id) AS total_visitors,
+-- 	AVG(amount) AS avg_bill,
+-- 	AVG(transaction_qty) AS avg_orders
+-- FROM Transactions;
+
+-- (e) Footfall Over Store Locations
+SELECT 
+    store_location,
+    COUNT(transaction_id) AS transaction_count,
+    SUM(amount) AS sum_of_amount
+FROM Transactions
+GROUP BY store_location
+ORDER BY sum_of_amount DESC;
+
+-- (f) Sales by Size
+SELECT 
+    size,
+    COUNT(transaction_id) AS size_distribution
+FROM Transactions
+GROUP BY size
+ORDER BY size_distribution DESC;
+
+-- (f) Sales by Day of the Week
+SELECT 
+    day_name,
+    COUNT(transaction_id) AS total_sales
+FROM Transactions
+GROUP BY day_name
+-- ORDER BY FIELD(day_name, "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
+
+-- SELECT 
+--     day_name,
+--     COUNT(transaction_id) AS total_sales
+-- FROM Transactions
+-- GROUP BY day_name
+-- ORDER BY 
+--     CASE day_name
+--         WHEN 'Sunday' THEN 1
+--         WHEN 'Monday' THEN 2
+--         WHEN 'Tuesday' THEN 3
+--         WHEN 'Wednesday' THEN 4
+--         WHEN 'Thursday' THEN 5
+--         WHEN 'Friday' THEN 6
+--         WHEN 'Saturday' THEN 7
+--     END;
+
+-- (h) Top 5 Products by Sales
+SELECT 
+    product_detail,
+    SUM(amount) AS total_sales
+FROM Transactions
+GROUP BY product_detail
+ORDER BY total_sales DESC
+LIMIT 5;
+
+-- (i) Category Percentage Distribution
+SELECT 
+    product_category,
+    SUM(amount) AS total_sales
+--     ROUND((SUM(amount) * 100.0 / (SELECT SUM(amount) FROM Transactions)), 2) AS percentage_contribution
+FROM Transactions
+GROUP BY product_category
+ORDER BY total_sales DESC;
+
+-- (i) Hourly Sales Trend
+SELECT 
+    hour,
+    SUM(transaction_qty) AS total_quantity
+FROM Transactions
+GROUP BY hour
+ORDER BY hour;
+
+
+
