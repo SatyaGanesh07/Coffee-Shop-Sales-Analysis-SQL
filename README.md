@@ -60,16 +60,6 @@ This project analyzes the sales transactions from a coffee shop, stored in the `
 2. **Customer Insights**: Integrate demographic data to understand and segment customer behavior.  
 3. **Real-Time Dashboards**: Leverage visualization tools like Tableau or Power BI for real-time insights.
 
----
-
-## **Getting Started**
-
-1. Clone the repository:  
-   ```bash
-   git clone https://github.com/meabhaykr/Coffee-Shop-Sales-Analysis-Using-SQL
-   ```
-2. Load the sample database schema and data into your preferred SQL environment.  
-3. Run the SQL scripts provided to explore insights.
 
 ---
 ## Contact
